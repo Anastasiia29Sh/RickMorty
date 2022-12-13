@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        if let characterViewController = window?.rootViewController as? CharacterViewController{
+            characterViewController.characterViewModel = CharacterViewModel()
+        }
         // Override point for customization after application launch.
         return true
     }
