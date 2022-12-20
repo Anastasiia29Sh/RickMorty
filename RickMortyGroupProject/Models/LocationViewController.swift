@@ -10,7 +10,6 @@ import UIKit
 
 class LocationViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
-//    var locations: [ResultsL] = []
     private var locationViewModel = LocationViewModel()
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -25,26 +24,6 @@ class LocationViewController: UIViewController, UICollectionViewDataSource, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAllLocations()
-        
-        
-        
-//        let url = URL(string: "https://rickandmortyapi.com/api/location")
-//        URLSession.shared.dataTask(with: url!) {(data, response, error) in
-//            if error == nil {
-//                do{
-//                    self.locations = try JSONDecoder().decode(Locations.self, from: data!).results
-//
-//                }catch{
-//                    print("Parse Error")
-//                    print(error)
-//                }
-//                DispatchQueue.main.async{
-//
-//                    self.collectionView.reloadData()
-//
-//                }
-//            }
-//        }.resume()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

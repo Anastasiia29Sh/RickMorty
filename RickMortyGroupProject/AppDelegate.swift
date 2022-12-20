@@ -16,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if let characterViewController = window?.rootViewController as? CharacterViewController{
-            characterViewController.characterViewModel = CharacterViewModel()
+                    characterViewController.characterViewModel = CharacterViewModel()
+                }
+        if let filterViewController = window?.rootViewController as? FilterViewController{
+            filterViewController.resultFilterViewModel = ResultFilterViewModel()
         }
         // Override point for customization after application launch.
         return true

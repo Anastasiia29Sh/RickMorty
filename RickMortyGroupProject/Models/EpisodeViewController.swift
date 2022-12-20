@@ -10,7 +10,6 @@ import UIKit
 
 class EpisodeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
-//    var episodes: [ResultsE] = []
     private var episodeViewModel = EpisodeViewModel()
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -26,25 +25,6 @@ class EpisodeViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAllEpisodes()
-        
-        
-//        let url = URL(string: "https://rickandmortyapi.com/api/episode")
-//        URLSession.shared.dataTask(with: url!) {(data, response, error) in
-//            if error == nil {
-//                do{
-//                    self.episodes = try JSONDecoder().decode(Episodes.self, from: data!).results
-//
-//                }catch{
-//                    print("Parse Error")
-//                    print(error)
-//                }
-//                DispatchQueue.main.async{
-//
-//                    self.collectionView.reloadData()
-//
-//                }
-//            }
-//        }.resume()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

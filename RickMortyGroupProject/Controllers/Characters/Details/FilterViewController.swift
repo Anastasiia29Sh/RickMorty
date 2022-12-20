@@ -22,20 +22,27 @@ class FilterViewController: UIViewController {
     
     let radioController: RadioButtonController = RadioButtonController()
     let radioController2: RadioButtonController = RadioButtonController()
-    
-//    var radioButtonController: RadioButtonController
     var characterViewModel: CharacterViewModel!
+    
+    var resultFilterViewModel = ResultFilterViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         radioController.buttonsArray = [btnAlive,btnDead,btnStatusUnknown]
         radioController2.buttonsArray = [btnFemale,btnMale,btnGenderless,btnGenderUnknown]
-        //radioController.defaultButton = btnAlive
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if let resultView = segue.destination as? FilterResultController{
+               resultView.resultFilterViewModel = resultFilterViewModel
+           }
+       }
+    
     @IBAction func btnAliveAction(_ sender: UIButton) {
         radioController.buttonArrayUpdated(buttonSelected: sender)
     }    
+    
     
     @IBAction func btnDeadAction(_ sender: UIButton) {
           radioController.buttonArrayUpdated(buttonSelected: sender)
@@ -84,13 +91,20 @@ class FilterViewController: UIViewController {
                 criterionsG = dictGender[button.restorationIdentifier!]
             }
         }
-        let charcterList = characterViewModel.charactersList()
+        let chrList = characterViewModel.charactersList()
+        if criterionsS == nil && criterionsG == nil{
+            return chrList
+        }
         var filterCharacters = [Results]()
-        for chr in charcterList{
-            if criterionsS == chr.status{
+        for chr in chrList{
+            
+            if criterionsS == chr.status && criterionsG == nil{
                 filterCharacters.append(chr)
             }
-            else if criterionsG == chr.gender{
+            else if criterionsG == chr.gender && criterionsS == nil{
+                filterCharacters.append(chr)
+            }
+            else if criterionsG == chr.gender && criterionsS == chr.status{
                 filterCharacters.append(chr)
             }
         }
@@ -98,10 +112,10 @@ class FilterViewController: UIViewController {
     }
    
         
-    @IBAction func applyFilters(_ sender: Any) {
+    @IBAction func applyFilters(_ sender: Any){
         let characters = filterButton()
-        characterViewModel.reloadCharacters(newCharacters: characters)
-        dismiss(animated: true, completion: nil)
+        resultFilterViewModel.reloadResultFilter(newResult: characters)
+        dismiss(animated: true, completion: nil)        
     }
     
 }

@@ -12,7 +12,6 @@ class EpisodeViewModel{
     private var episodeDataService = EpisodeDataService()
     private var episodes = [ResultsE]()
     
-    // weak self предотвращает появление цикла удержания
     func getAllEpisodes(completion: @escaping () -> ()){
         episodeDataService.episodeAPI{ [weak self] (result) in
             switch result{
