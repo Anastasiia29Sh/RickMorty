@@ -2,7 +2,7 @@
 //  EpisodeViewController.swift
 //  RickMortyGroupProject
 //
-//  Created by dan on 09.12.2022.
+//  Created by dan on 22.12.2022.
 //  Copyright © 2022 MacStud. All rights reserved.
 //
 
@@ -46,4 +46,3 @@ class EpisodeViewController: UIViewController, UICollectionViewDataSource, UICol
     
    
 }
-

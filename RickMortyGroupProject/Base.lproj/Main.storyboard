@@ -181,7 +181,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Locations" id="iMd-nr-FAB"/>
                     <connections>
-                        <outlet property="collectionView" destination="iRo-uM-pKw" id="rua-eg-hDf"/>
+                        <outlet property="collectionView" destination="iRo-uM-pKw" id="1dQ-qu-a65"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOo-R1-rbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
